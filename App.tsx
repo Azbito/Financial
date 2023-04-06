@@ -1,5 +1,6 @@
 import { Routes } from './routes';
 import { useFonts } from 'expo-font';
+import TabBar from './src/components/TabBar';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -14,6 +15,9 @@ export default function App() {
   }
 
   return (
-    <Routes />
+    <>
+      <Routes />
+      <TabBar />
+    </>
   )
 }
