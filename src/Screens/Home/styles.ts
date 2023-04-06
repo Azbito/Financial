@@ -9,7 +9,7 @@ export const styles: any = StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
     width: '80%',
-    height: '20%',
+    height: '40%',
     borderRadius: 8
   },
   textModal: {
@@ -20,15 +20,13 @@ export const styles: any = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    display: 'flex',
-    marginTop: 32,
-    height: '100%'
+    display: 'flex'
   },
   content: {
     alignItems: 'center',
     justifyContent: 'center',
     display: 'flex',
-    marginTop: -200
+    width: '100%'
   },
   wallet: {
     backgroundColor: '#52ad52',

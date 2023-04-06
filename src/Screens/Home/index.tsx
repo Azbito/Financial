@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { styles } from './styles';
 import { ScrollView } from 'react-native-gesture-handler';
 import { services } from '../../utils/services';
+import User from '../../components/User';
 
 export default function Home() {
   const [isHiding, setIsHiding] = useState(false)
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
+        <User />
         <View style={styles.wallet}>
           <Image source={WalletIcon} style={{ width: 80, height: 80 }}
           />
@@ -71,11 +73,17 @@ export default function Home() {
             <View style={styles.registered}>
               <Text style={styles.value}>10USD</Text>
               <Text style={styles.value}>5USD</Text>
+              <Text style={styles.value}>10USD</Text>
+              <Text style={styles.value}>5USD</Text>
+              <Text style={styles.value}>10USD</Text>
             </View>
           </View>
           <View>
             <Text style={styles.withdraws}>Withdraws</Text>
             <View style={styles.registered}>
+              <Text style={styles.value}>2.50USD</Text>
+              <Text style={styles.value}>2.50USD</Text>
+              <Text style={styles.value}>2.50USD</Text>
               <Text style={styles.value}>2.50USD</Text>
               <Text style={styles.value}>2.50USD</Text>
             </View>
