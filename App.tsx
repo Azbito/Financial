@@ -3,6 +3,7 @@ import { useFonts } from 'expo-font';
 import TabBar from './src/components/TabBar';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { GoalsContextProider } from './src/contexts/goalsContext';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,8 +19,10 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <StatusBar style='light' />
-      <Routes />
+      <GoalsContextProider>
+        <StatusBar style='light' />
+        <Routes />
+      </GoalsContextProider>
     </SafeAreaProvider>
   )
 }

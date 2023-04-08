@@ -6,16 +6,12 @@ export const styles: any = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    bottom: 16
+    bottom: 0
   },
   container: {
     backgroundColor: '#4a46a6',
-    width: 300,
+    width: '100%',
     height: 64,
-    borderBottomLeftRadius: 32,
-    borderBottomRightRadius: 32,
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row'

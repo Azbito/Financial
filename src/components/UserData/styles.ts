@@ -9,7 +9,7 @@ export const styles: any = StyleSheet.create({
   welcome: {
     fontFamily: 'Poppins-Bold',
     color: '#4a46a6',
-    fontSize: 32,
+    fontSize: 40,
     marginTop: 64
   },
   container: {

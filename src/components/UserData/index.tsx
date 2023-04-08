@@ -7,7 +7,7 @@ export default function UserData() {
   return (
     <View style={styles.content}>
       <Text style={styles.welcome}>Your Data</Text>
-      <Avatar.Image source={AvatarImage} size={60} style={{ zIndex: 1 }} />
+      <Avatar.Image source={AvatarImage} size={100} style={{ zIndex: 1 }} />
       <View style={styles.container}>
         <Text style={styles.info}>Name</Text>
         <Text style={styles.userText}>Alexander Caeser</Text>

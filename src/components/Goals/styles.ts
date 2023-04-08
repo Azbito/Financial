@@ -9,7 +9,7 @@ export const styles: any = StyleSheet.create({
   titleGoals: {
     fontFamily: 'Poppins-Medium',
     fontSize: 25,
-    color: 'green'
+    color: '#2ab823'
   },
   container: {
     justifyContent: 'center',
@@ -18,7 +18,8 @@ export const styles: any = StyleSheet.create({
     padding: 16,
     wordbreak: 'break-all',
     width: 250,
-    borderRadius: 16
+    borderRadius: 16,
+    position: 'relative'
   },
   title: {
     padding: 8,
@@ -46,6 +47,7 @@ export const styles: any = StyleSheet.create({
     flexDirection: 'row'
   },
   response: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Poppins-Bold'
   }
 })
