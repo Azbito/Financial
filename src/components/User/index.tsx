@@ -6,8 +6,10 @@ import { styles } from "./styles";
 export default function User() {
   return (
     <View style={styles.container}>
-      <Avatar.Image size={24} source={AvatarImage} size={60} style={styles.avatar} />
-      <Text style={styles.welcome}>Welcome!</Text>
+      <View style={styles.avatarLine}>
+        <Avatar.Image source={AvatarImage} size={60} />
+        <Text style={styles.welcome}>Welcome!</Text>
+      </View>
     </View>
   )
 }

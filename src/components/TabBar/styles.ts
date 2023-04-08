@@ -9,7 +9,7 @@ export const styles: any = StyleSheet.create({
     bottom: 16
   },
   container: {
-    backgroundColor: '#b02a38',
+    backgroundColor: '#4a46a6',
     width: 300,
     height: 64,
     borderBottomLeftRadius: 32,
@@ -26,20 +26,20 @@ export const styles: any = StyleSheet.create({
   },
   home: {
     top: -32,
-    backgroundColor: '#e64053',
+    backgroundColor: '#605bcf',
     padding: 8,
     borderRadius: 32,
     elevation: 5
   },
   settings: {
-    backgroundColor: '#e64053',
+    backgroundColor: '#605bcf',
     top: -32,
     padding: 8,
     borderRadius: 32,
     elevation: 5
   },
   user: {
-    backgroundColor: '#e64053',
+    backgroundColor: '#605bcf',
     top: -32,
     padding: 8,
     borderRadius: 32,
