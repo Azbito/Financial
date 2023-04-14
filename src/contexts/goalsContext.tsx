@@ -14,7 +14,7 @@ export interface GoalsProps {
   id: number | null | string,
   title: string,
   description: string,
-  moneyNeeded: string,
+  moneyNeeded: any,
   isDone: string
 }
 

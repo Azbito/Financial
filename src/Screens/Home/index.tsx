@@ -1,6 +1,4 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Button as PaperButton, Switch as PaperSwitch, Provider as PaperProvider, Avatar, Modal } from 'react-native-paper';
-import { useState } from 'react';
 import { styles } from './styles';
 import { ScrollView } from 'react-native-gesture-handler';
 import { services } from '../../utils/services';

@@ -4,6 +4,8 @@ import { styles } from './styles'
 import { useContext, useState, useId } from "react";
 import { GoalsContext, GoalsProps } from "../../contexts/goalsContext";
 import { produce } from "immer";
+import { goals } from "../../utils/goals";
+import hasLetters from "../../utils/hasLetters";
 
 type ModalCreateGoalProps = {
   visible: boolean,
@@ -15,15 +17,28 @@ export default function ModalCreateGoal({ visible, onDismiss }: ModalCreateGoalP
     id: null,
     title: "",
     description: "",
-    moneyNeeded: "",
+    moneyNeeded: null,
     isDone: ""
   }
 
   const { goalsList, setGoalsList } = useContext(GoalsContext)
   const [goal, setGoal] = useState<GoalsProps>(initialGoal)
+  const [money, setMoney] = useState()
+
+  if (goal.moneyNeeded != "" || null) {
+    setMoney.toString()
+  }
+
+  function verifyMoney() {
+    if (hasLetters(goal.moneyNeeded)) {
+      alert("Only numbers, please.")
+      return;
+    } else {
+      addGoal()
+    }
+  }
 
   function addGoal() {
-
     const id = Math.random()
 
     setGoalsList(
@@ -50,8 +65,8 @@ export default function ModalCreateGoal({ visible, onDismiss }: ModalCreateGoalP
         <TextInput mode="outlined" label="Description" style={{ width: "80%" }} value={goal.description} onChangeText={(text: string) => setGoal(produce(goal, draft => {
           draft.description = text
         }))} />
-        <TextInput mode="outlined" label="Money needed" style={{ width: "80%" }} value={goal.moneyNeeded} onChangeText={(text: string) => setGoal(produce(goal, draft => {
-          draft.moneyNeeded = text
+        <TextInput keyboardType="numeric" mode="outlined" label="Money needed" style={{ width: "80%" }} value={money} onChangeText={(text: string) => setGoal(produce(goal, draft => {
+          draft.moneyNeeded = Number(text)
         }))} />
         <Text style={{ fontSize: 20, fontFamily: "Poppins-Medium" }}>Is it done?</Text>
         <View style={styles.isDone}>
@@ -78,7 +93,7 @@ export default function ModalCreateGoal({ visible, onDismiss }: ModalCreateGoalP
             <Text style={styles.response}>No</Text>
           </View>
         </View>
-        <Button mode="contained" onPress={addGoal}>Post Goal</Button>
+        <Button mode="contained" onPress={verifyMoney}>Post Goal</Button>
       </View>
     </Modal>
   )

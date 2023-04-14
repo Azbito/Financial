@@ -26,7 +26,8 @@ export const styles: any = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: 'white',
     fontFamily: 'Poppins-Medium',
-    marginBottom: 8
+    marginBottom: 8,
+    elevation: -1
   },
   description: {
     fontFamily: 'Poppins-Medium',

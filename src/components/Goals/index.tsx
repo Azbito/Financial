@@ -23,7 +23,7 @@ export default function YourGoals() {
       <View style={{ gap: 32 }}>
         {goalsList.length > 0 ? goalsList.map((item, index) => (
           <View key={item.id} style={styles.container}>
-            <Pressable style={{ position: "absolute", top: 8, right: 8 }} onPress={() => delTask(index)}>
+            <Pressable style={{ position: "absolute", top: 8, right: 6 }} onPress={() => delTask(index)}>
               <Avatar.Icon size={32} icon="trash-can-outline" style={{ backgroundColor: "#a12f2f" }} />
             </Pressable>
             <Text style={styles.title}>{item.title}</Text>
