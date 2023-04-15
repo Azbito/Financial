@@ -1,5 +1,5 @@
-import React, { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
-import { goals } from '../utils/goals';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react';
 
 interface GoalsContextType {
   goalsList: GoalsProps[],
@@ -21,7 +21,16 @@ export interface GoalsProps {
 export const GoalsContext = createContext({} as GoalsContextType)
 
 export const GoalsContextProider = ({ children }: GoalsContextProviderProps) => {
-  const [goalsList, setGoalsList] = useState<GoalsProps[]>(goals)
+  const [goalsList, setGoalsList] = useState<GoalsProps[]>([])
+
+  useEffect(() => {
+    AsyncStorage.getItem('@storage_goals')
+      .then((res) => {
+        const goals = res != null ? JSON.parse(res) : []
+        setGoalsList(goals)
+      })
+  }, [])
+
   return (
     <GoalsContext.Provider value={{ goalsList, setGoalsList }}>
       {children}

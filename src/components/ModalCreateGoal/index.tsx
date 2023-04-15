@@ -1,11 +1,11 @@
 import { Text, View } from "react-native";
 import { Button, Modal, RadioButton, TextInput } from "react-native-paper";
 import { styles } from './styles'
-import { useContext, useState, useId } from "react";
+import { useContext, useState, useId, useEffect } from "react";
 import { GoalsContext, GoalsProps } from "../../contexts/goalsContext";
 import { produce } from "immer";
-import { goals } from "../../utils/goals";
 import hasLetters from "../../utils/hasLetters";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type ModalCreateGoalProps = {
   visible: boolean,
@@ -33,13 +33,17 @@ export default function ModalCreateGoal({ visible, onDismiss }: ModalCreateGoalP
     if (hasLetters(goal.moneyNeeded)) {
       alert("Only numbers, please.")
       return;
-    } else {
-      addGoal()
     }
+    addGoal()
   }
 
   function addGoal() {
     const id = Math.random()
+
+    if (goalsList.length == 50) {
+      alert("You cannot register more than 50 goals. Sorry! :(")
+      return;
+    }
 
     setGoalsList(
       produce(goalsList, draft => {
@@ -51,8 +55,8 @@ export default function ModalCreateGoal({ visible, onDismiss }: ModalCreateGoalP
     )
 
     setGoal(initialGoal)
-
     onDismiss()
+
   }
 
   return (

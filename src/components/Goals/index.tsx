@@ -1,22 +1,30 @@
 import { View, Text, Pressable } from "react-native";
 import { styles } from "./styles";
-import { Avatar, Button, RadioButton } from "react-native-paper";
-import { goals } from "../../utils/goals";
-import { useContext, useState } from "react";
+import { Avatar, RadioButton } from "react-native-paper";
+import { useContext, useEffect } from "react";
 import { produce } from 'immer'
 import { GoalsContext } from "../../contexts/goalsContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function YourGoals() {
 
   const { goalsList, setGoalsList } = useContext(GoalsContext)
 
-  function delTask(index: any) {
+  function delTask(index: number) {
     setGoalsList(
       produce(goalsList, draft => {
         draft.splice(index, 1)
       })
     )
+
   }
+
+  useEffect(() => {
+    AsyncStorage.setItem('@storage_goals', JSON.stringify(goalsList))
+  }, [goalsList])
+
+
+
   return (
     <View style={styles.content}>
       <Text style={styles.titleGoals}>Your Goals</Text>
